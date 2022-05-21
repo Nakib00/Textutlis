@@ -9,13 +9,13 @@ def index(request):
 #This is for analyze page
 def analyze(request):
     #Get the text
-    djtext = request.GET.get('text', 'default')
+    djtext = request.POST.get('text', 'default')
     #Get CheckBox value
-    removepunc=request.GET.get('removepunc','off')
-    fullcaps=request.GET.get('fullcaps','off')
-    newlineremover=request.GET.get('newlineremover','off')
-    extraspaceremover=request.GET.get('extraspaceremover','off')
-    charcounter=request.GET.get('charcounter','off')
+    removepunc=request.POST.get('removepunc','off')
+    fullcaps=request.POST.get('fullcaps','off')
+    newlineremover=request.POST.get('newlineremover','off')
+    extraspaceremover=request.POST.get('extraspaceremover','off')
+    charcounter=request.POST.get('charcounter','off')
 
 #it's work for remove punctuations
     if removepunc=="on":
@@ -70,4 +70,4 @@ def analyze(request):
 
 #it's work for can't select any CheckBox
     else:
-        return HttpResponse('Error You not select the CheckBox')
+        return HttpResponse('Error POST')
